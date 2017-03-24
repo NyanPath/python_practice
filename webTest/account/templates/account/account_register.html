@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+    <script>
+        function check_twice_password() {
+            var password = document.getElementById('id_password').value;
+            var password_second = document.getElementById('id_password_second').value;
+            if (password == password_second){
+                return true;
+            }
+            else{
+                alert('两次密码不一致,请重新输入');
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>注册页面：</h1>
+    <form method="post" enctype="multipart/form-data">
+        <p>用户名:{{ uf.username }}</p><a style="color:red">{{ errors }}</a>
+        <p>密码:{{ uf.password }}</p>
+        <p>再次输入密码:{{ uf.password_second }}</p>
+        <p>邮箱:{{ uf.email }}</p>
+        <input type="submit" value="确认" onclick="return check_twice_password()" />
+    </form>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css' />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Re:0</title>
+
+    <!-- Bootstrap -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+{#    <style type="text/css">#}
+{#        body{color:lightskyblue;background: white;padding:0 5em;margin:0}#}
+{#        h1{padding:2em 1em;background:lightblue}#}
+{#        h2{color:greenyellow;broder-top:1px dotted #fff;margin-top:2em}#}
+{#        p{margin:1em 0}#}
+{#    </style>#}
+    <body>
+        <div class="row">
+            <div class="col-xs-12"><img src="{% static 'images/heading.jpg' %}"
+                                       style="width: 100%;height: 30%" class="img-thumbnail"></div>
+        </div>
+        {% block content %}
+        {% endblock %}
+    </body>
+    {% for post in blog_list %}
+        <a href="http://127.0.0.1:8000/register.html" style="text-decoration: none">
+            <span style="font-size: 4ex; color:#FA5882">{{ post.title }}</span>
+        </a>
+        <p>{{ post.timestamp }}</p>
+        <p>{{ post.body }}</p>
+    {% endfor %}
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</html>
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <img src="picture/url=http://img9.bcyimg.com/drawer/14024/post/4bm0/7acdee40400111e68c812b6b7b6b6584.jpg/w650" style="width: 25%;height: 25%">#}
+{#    <title>呵呵</title>#}
+{#</head>#}
+
